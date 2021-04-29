@@ -1,8 +1,15 @@
 package user
 
-import "github.com/diobrandokill/go_study/mock/person"
+import "mock/person"
 
 type User struct {
-	Person Person.Male
+	Person person.Male
+}
 
+func NewUser(p person.Male) *User {
+	return &User{Person: p}
+}
+
+func (u *User) GetUserInfo(id int64) error {
+	return u.Person.Get(id)
 }
